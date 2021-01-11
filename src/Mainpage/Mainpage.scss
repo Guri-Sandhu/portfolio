@@ -1,0 +1,110 @@
+@import "./../_globals";
+
+.content {
+    height: 100%;
+    padding-left:100px;
+    @include display-flex();
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    // background-color: aquamarine;
+    
+
+    &__name {
+        font-size: 58px;
+        font-family: 'Mate', serif;
+        padding: 0 15px;
+        max-width: 700px;
+        align-self: center;
+        // background-color: #b18597;
+    }
+}
+
+#face {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: face 2s linear 0s infinite;
+    z-index: 1;
+}
+
+#face:hover {
+    animation: faceHover 1s ease-in-out 0s infinite;
+}
+
+@keyframes face {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    25% {
+        transform: rotateZ(5deg);
+    }
+    50% {
+        transform: rotateZ(0deg);
+    }
+    75% {
+        transform: rotateZ(-5deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes faceHover {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    25% {
+        transform: rotateZ(10deg);
+    }
+    50% {
+        transform: rotateZ(0deg);
+    }
+    75% {
+        transform: rotateZ(-10deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@media (max-width: 960px) {
+    .content {
+        height: 100%;
+        padding-left:50px;
+        @include display-flex();
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        // background-color: aquamarine;
+        
+
+        &__name {
+            font-size: 58px;
+            font-family: 'Mate', serif;
+            padding: 0 15px;
+            max-width: 700px;
+            align-self: flex-start;
+            // background-color: #b18597;
+        }
+
+    }
+
+}
+
+@media (max-width: 700px) {
+    .content {
+        @include display-flex();
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    
+        &__name {
+            font-size: 58px;
+            font-family: 'Mate', serif;
+            padding: 0 0px;
+            max-width: 700px;
+            align-self: flex-start;
+            // background-color: #b18597;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarala&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mate&display=swap');
+
+
+$tablet: "screen and (max-width:660px)";
+$phone: "screen and (max-width:660px)";
+//$accent-color:#2fa77f;
+$text-color:#616161;
+$background-color:#DADED4;
+//$greyed-color: #C0C0C0;
+//$trashColor: #f70d1a;
+//$addColor:#990000;
+$base-font-size:12px;
+
+@mixin display-flex() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
