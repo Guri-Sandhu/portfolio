@@ -13,12 +13,104 @@
     &__name {
         font-size: 58px;
         font-family: 'Mate', serif;
-        padding: 0 15px;
+        //padding: 0 15px;
         max-width: 700px;
         align-self: center;
         // background-color: #b18597;
     }
+
+    &__buttons > * {
+        margin-right: 15px;
+    }
 }
+
+// -----------------buttons css
+.btn-1 {
+    font-family: inherit;
+    background: #3C403D;
+    color:  #ffffff;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 1.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+
+    &::after {
+        content: "\f30b";
+        font-family: "FontAwesome";
+        font-weight: 400;
+        position: absolute;
+        left: 85%;
+        top: 31%;
+        right: 5%;
+        bottom: 0;
+        opacity: 0;
+
+    }
+
+    &:hover {
+        background: #111111;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #59595a61;
+        padding: 1.5rem 3.5rem 1.5rem 1.5rem;
+
+        &::after {
+            opacity: 1;
+            transition: all 0.5s;
+        }
+    }
+}
+
+.login-btn {
+    font-family: inherit;
+    background: #39603D;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 1.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+
+    &::after {
+        content: "\f0e0";
+        font-family: "FontAwesome";
+        font-weight: 400;
+        position: absolute;
+        left: 86%;
+        top: 54%;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+
+    }
+
+    &:hover {
+        background: #48656E;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #59595a61;
+        padding: 1.5rem 3rem 1.5rem 1.5rem;
+        color: #ffffff;
+
+        &::after {
+            opacity: 1;
+            transition: all 0.5s;
+            color: #ffffff;
+
+        }
+    }
+}
+
+
+// ---------------------------
 
 #face {
     transform-box: fill-box;
