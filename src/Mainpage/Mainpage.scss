@@ -2,7 +2,7 @@
 
 .content {
     height: 100%;
-    padding-left:100px;
+    padding-left:50px;
     @include display-flex();
     flex-direction: row;
     justify-content: center;
@@ -21,7 +21,16 @@
 
     &__buttons > * {
         margin-right: 15px;
+        margin-bottom: 10px;
     }
+
+    &__bobble--small {
+        display: none;
+    }
+}
+
+.mainText {
+    margin-bottom: 15px;
 }
 
 // -----------------buttons css
@@ -96,7 +105,7 @@
         background: #48656E;
         transition: all 0.5s;
         border-radius: 10px;
-        box-shadow: 0px 6px 15px #59595a61;
+        box-shadow: 0px 6px 15px #48656E;
         padding: 1.5rem 3rem 1.5rem 1.5rem;
         color: #ffffff;
 
@@ -161,7 +170,6 @@
 
 @media (max-width: 960px) {
     .content {
-        height: 100%;
         padding-left:50px;
         @include display-flex();
         flex-direction: row;
@@ -181,6 +189,10 @@
 
     }
 
+    .btn-1 {
+        margin-bottom: 10px;
+    }
+
 }
 
 @media (max-width: 700px) {
@@ -188,15 +200,111 @@
         @include display-flex();
         flex-direction: row;
         flex-wrap: wrap;
-
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        
     
         &__name {
-            font-size: 58px;
+            font-size: 29px;
             font-family: 'Mate', serif;
             padding: 0 0px;
             max-width: 700px;
             align-self: flex-start;
             // background-color: #b18597;
+        }
+
+        &__bobble {
+            display: none;
+        }
+
+        &__bobble--small {
+            display: flex;
+            position: relative;
+            padding-right: 30px;
+        }
+    }
+
+    .mainText {
+        margin-bottom: 15px;
+    }
+
+    .btn-1 {
+        font-family: inherit;
+        background: #3C403D;
+        color:  #ffffff;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 1rem;
+        border: 0;
+        transition: all 0.5s;
+        border-radius: 10px;
+        width: auto;
+        margin-bottom: 10px;
+        position: relative;
+    
+        &::after {
+            content: "\f30b";
+            font-family: "FontAwesome";
+            font-weight: 400;
+            position: absolute;
+            left: 80%;
+            top: 35%;
+            right: 5%;
+            bottom: 0;
+            opacity: 0;
+    
+        }
+    
+        &:hover {
+            background: #111111;
+            transition: all 0.5s;
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px #59595a61;
+            padding: 1rem 2.4rem 1rem 1.5rem;
+    
+            &::after {
+                opacity: 1;
+                transition: all 0.5s;
+            }
+        }
+    }
+    
+    .login-btn {
+        font-size: 18px;
+        padding: 1rem;
+        border: 0;
+        transition: all 0.5s;
+        border-radius: 10px;
+        width: auto;
+        position: relative;
+    
+        &::after {
+            content: "\f0e0";
+            font-family: "FontAwesome";
+            font-weight: 400;
+            position: absolute;
+            left: 86%;
+            top: 58%;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+        }
+    
+        &:hover {
+            background: #48656E;
+            transition: all 0.5s;
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px #48656E;
+            padding: 1rem 2.5rem 1rem 1rem;
+            color: #ffffff;
+    
+            &::after {
+                opacity: 1;
+                transition: all 0.5s;
+                color: #ffffff;
+            }
         }
     }
 }

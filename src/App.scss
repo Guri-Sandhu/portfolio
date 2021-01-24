@@ -25,24 +25,26 @@
 }
 
 .subSection {
-    flex-grow: 1;
     @include display-flex();
     flex-flow: row nowrap;
-    height:100%;
+    // justify-content: flex-start;
+    flex-grow: 1;
+    height:auto;
     width: 100%;
-    // background-color: aqua;
 }
-
-// .shortNav {
-//     display: none !important;
-// }
 
 .changesection {
     // background-color: black;
     width: 100%;
 }
 
+// .shortNav {
+//     display: none;
+// }
+
 .nav {
+    // position: fixed;
+    // top:50%;
     @include display-flex();
     flex-direction: column;
     align-items: center;
@@ -60,11 +62,20 @@
         color: #3C403D;
         text-decoration: none;
         width: 100%;
-        //background-color: aqua;
         text-align: center;
     }
 
     &__link:hover {
+        color: black;
+        font-weight: bolder;
+        background: url(navBack.png);
+        background-repeat: no-repeat;
+        background-size:auto;
+        background-position: center;
+        //background-attachment: fixed;
+    }
+
+    .nav__link.click {
         color: black;
         font-weight: bolder;
         background: url(navBack.png);
@@ -87,6 +98,23 @@
     }
 }
 
+.footer {
+    position: relative;
+    font-size: 20px;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    a {
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 1px solid;
+        &:hover {
+        border-bottom: 1px transparent;
+        }
+    }
+  }
+
 @media (max-width: 960px) {
     .nav {
         display: none;
@@ -107,6 +135,15 @@
         flex-direction: column;
         text-align: center;
         transition-delay: 1s;
+        background-color: hsla(120, 60%, 70%, 0.1);
+    }
+
+    .shortNav__link {
+        font-size: 28px;
+    }
+
+    .changesection {
+        height: 50%;
     }
 
     .socialMedia {
@@ -122,6 +159,10 @@
         }
     }
 
+    .footer {
+        padding-top: 30px;
+    }
+
 
 }
 
@@ -135,6 +176,14 @@
         // background-color: aqua;
     }
 
+    .changesection {
+        height: auto;
+    }
+
+    .header__title {
+        padding-left: 0px;
+    }
+
     .header__menuBtn {
         display: inline;
         margin-right: 0px;
@@ -145,7 +194,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        align-self: start;
+        //align-self: start;
         width: 100%;
         padding-top: 0px;
     
