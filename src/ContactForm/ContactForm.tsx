@@ -5,18 +5,11 @@ import "./ContactForm.scss";
 import MapContact from "./MapContact";
 import SmallMap from "./SmallMap";
 
-import {contactPageProps} from "./../Tools/data.model";
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-// Jump component which is populated with image thumbnails which can be clicked on to go to a certain image
 const ContactForm = ():JSX.Element => {
 
     const isMobileorTab = useMediaQuery({
         query: '(max-device-width: 960px)'
     })
-
-    const [cardnum, setCardNum] = React.useState<number>(0);
 
     return (
         <div className="contact">

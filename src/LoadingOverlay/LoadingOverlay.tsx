@@ -1,6 +1,5 @@
 import React from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Loader from 'react-loader-spinner'
 import './LoadingOverlay.scss';
 
 interface LoadingOverlayProps {
@@ -19,13 +18,12 @@ const LoadingOverlay = ({enabled, bgColor, spinnerColor}:LoadingOverlayProps):JS
         (enabled)
         ? 
         <div className="loading-overlay" style={styles}>
-            <Loader
-                type="TailSpin"
-                color={spinnerColor}
-                height={50}
-                width={50}
-                timeout={5000}
-            />
+            <img src="logogs.svg" alt="dsf" height="152px" width="142px"></img>
+            <div className="containerStyles">
+            <div className="fillerStyles">
+                <span className="labelStyles" ></span>
+            </div>
+            </div>
         </div>
         : <div></div>
     );

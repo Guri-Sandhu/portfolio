@@ -1,6 +1,5 @@
 import React from 'react';
-import mapboxgl from 'mapbox-gl';
-import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
+import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "./ContactForm.scss";
 
@@ -31,7 +30,6 @@ const MapContact = ():JSX.Element => {
                 </Marker>
             </Map>
             </div>
-        
     );
 }
 

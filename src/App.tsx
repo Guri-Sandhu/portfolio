@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 // import { getJSONData } from "./Tools/Toolkit";
-// import LoadingOverlay from './LoadingOverlay/LoadingOverlay';
+import LoadingOverlay from './LoadingOverlay/LoadingOverlay';
 import { Link, Route, Switch } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
@@ -19,21 +19,28 @@ const App = ():JSX.Element => {
     setShowNav(!showNav);
   }
 
-  const openFormDisplay = ():void => {
-    setShowForm(!showNav);
+  // const openFormDisplay = ():void => {
+  //   setShowForm(!showNav);
+  // }
+
+  const setLoadAndNav = (num:number):void => {
+    setLoading(true);
+    setNavNum(num);
   }
 
-  // const [loading, setLoading] = React.useState<boolean>(true);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [showNav, setShowNav] = React.useState<boolean>(false);
   const [navNum, setNavNum] = React.useState<number>(0);
-  const [showForm, setShowForm] = React.useState<boolean>(false);
+  // const [showForm, setShowForm] = React.useState<boolean>(false);
   // const [openForm, setOpenForm] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setInterval(() => setLoading(false), 2000);
+  }, [loading]);
 
   return (
     <div className="main">
-      {/* <LoadingOverlay bgColor="#DADED4" spinnerColor="#FFFFFF" enabled={loading} /> */}
-
-      {/* <div style={{display: (showForm ? 'flex' : 'none')}}>< ContactForm /></div> */}
+      <LoadingOverlay  enabled={loading} bgColor="#DADED4" spinnerColor="#FFFFFF" />
 
       <div className="header">
         <div className="header__title"><img src="logogs.svg" alt="dsf" height="152px" width="142px"></img></div>
@@ -42,20 +49,20 @@ const App = ():JSX.Element => {
 
       {isMobileorTab &&
         <div className="shortNav" style={{display: (showNav ? 'flex' : 'none')}}>
-          <Link to="/" className={"shortNav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setNavNum(1)}>Home</Link>
-          <Link to="/projects" className={"shortNav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setNavNum(2)}>Projects</Link>
-          <Link to="/" className={"shortNav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setNavNum(3)}>About</Link>
-          <Link to="/contact" className={"shortNav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setNavNum(4)}>Contact</Link>
+          <Link to="/" className={"shortNav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setLoadAndNav(1)}>Home</Link>
+          <Link to="/projects" className={"shortNav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setLoadAndNav(2)}>Projects</Link>
+          <Link to="/" className={"shortNav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
+          <Link to="/contact" className={"shortNav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Contact</Link>
             <span onClick={(e) => setShowNav(false)}>X</span>
         </div>
 }
       
       <div className="subSection">
         <div className="nav">
-          <Link to="/" className={"nav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setNavNum(1)}>Home</Link>
-          <Link to="/projects" className={"nav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setNavNum(2)}>Projects</Link>
-          <Link to="/" className={"nav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setNavNum(3)}>About</Link>
-          <Link to="/contact" className={"nav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setNavNum(4)}>Contact</Link>
+          <Link to="/" className={"nav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setLoadAndNav(1)}>Home</Link>
+          <Link to="/projects" className={"nav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setLoadAndNav(2)}>Projects</Link>
+          <Link to="/" className={"nav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
+          <Link to="/contact" className={"nav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Contact</Link>
         </div>
 
         <div className="changesection">

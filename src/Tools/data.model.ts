@@ -11,3 +11,9 @@ export interface mainPageProps{
 export interface contactPageProps{
     navNumber:        Function;
 }
+
+export interface progressBarProps {
+    bgColor: string;
+    enable: boolean;
+    completed: number;
+}
