@@ -1,11 +1,10 @@
 import React from 'react';
 import "./Projects.scss";
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-// Jump component which is populated with image thumbnails which can be clicked on to go to a certain image
+// The project page components
 const Projects = ():JSX.Element => {
 
+    // To flip close a open card when another card is opened
     const cardflip = (num:number):void => {
         if(num === cardnum){
             setCardNum(0);
@@ -14,7 +13,7 @@ const Projects = ():JSX.Element => {
         }
     }
 
-
+    // variable setup
     const [cardnum, setCardNum] = React.useState<number>(0);
 
     return (
@@ -123,6 +122,7 @@ const Projects = ():JSX.Element => {
                                 <h4>Tech used:</h4>
                                 <div>
                                     <span className="myButton">React.js</span>&nbsp;
+                                    <span className="myButton">TypeScript</span>&nbsp;
                                     <span className="myButton">Express</span>&nbsp;
                                     <span className="myButton">Node.js</span>&nbsp;
                                     <span className="myButton">MongoDB</span>&nbsp;

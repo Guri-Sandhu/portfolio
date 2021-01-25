@@ -1,0 +1,125 @@
+@import "./../_globals";
+
+.about {
+    height: 100%;
+    @include display-flex();
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    // background-color: aquamarine;
+    
+
+    &__leftSide {
+        font-size: 24px;
+        font-family: 'Mate', serif;
+        height:500px;
+        max-width: 700px;
+        @include display-flex();
+        flex-direction: column;
+        justify-content: flex-start;
+        // background-color: #b18597;
+
+        &--heading {
+            margin: 32px 0;
+            font-size: 2em;
+            font-weight: 800;
+            color:#39603D;
+            border-bottom:3px solid #39603D;
+        }
+    }
+
+    &__rightSide {
+        padding-left: 50px;
+        padding-right: 10px;
+        height:auto;
+        max-width: 400px;
+
+        & > img {
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.interests {
+    @include display-flex();
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+@media (max-width: 960px) {
+    .about {
+        padding-left:20px;
+        @include display-flex();
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: flex-start;
+        // background-color: aquamarine;
+
+        &__leftSide {
+            height: auto;
+            padding-right: 0px;
+
+            &--heading {
+                margin: 16px 0;
+                font-size: 2em;
+                font-weight: 800;
+            }
+        }
+
+        &__rightSide {
+            height: auto;
+            padding: 20px 0 0 0;
+        }
+    }
+
+    .interests {
+        @include display-flex();
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 700px) {
+    .about {
+        @include display-flex();
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        padding-left: 20px;
+
+        &__leftSide {
+            height: auto;
+            padding-right: 0px;
+
+            &--heading {
+                margin: 16px 0;
+                font-size: 2em;
+                font-weight: 800;
+            }
+
+            & > h4 {
+                margin: 16px 0 !important;
+            }
+        }
+
+        &__rightSide {
+            height: auto;
+            padding: 20px 0 0 0;
+        }
+    }
+
+    .interests {
+        @include display-flex();
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+    }
+}

@@ -1,12 +1,15 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-
+// Importing Components
 import "./ContactForm.scss";
 import MapContact from "./MapContact";
 import SmallMap from "./SmallMap";
 
+// This is the contact page component
+// It also uses mapbox to display the location
 const ContactForm = ():JSX.Element => {
 
+    // Using this package to check screen size
     const isMobileorTab = useMediaQuery({
         query: '(max-device-width: 960px)'
     })

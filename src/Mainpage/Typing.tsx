@@ -7,10 +7,10 @@ const Typing = ():JSX.Element => {
         <Typewriter
         options={{
             strings: [
-            "Developer",
-            "ASP .NET Developer",
-            "MERN Stack Developer",
-            "NSCC Student",
+            "Developer.",
+            "C# Developer.",
+            "MERN Stack Developer.",
+            "NSCC Student.",
             ],
             autoStart: true,
             loop: true,

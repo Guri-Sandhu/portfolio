@@ -1,81 +1,86 @@
+// Importing required modules
 import React from 'react';
 import './App.scss';
-// import { getJSONData } from "./Tools/Toolkit";
-import LoadingOverlay from './LoadingOverlay/LoadingOverlay';
 import { Link, Route, Switch } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
+// Importing Components
 import Mainpage from "./Mainpage/Mainpage";
 import Projects from "./Projects/Projects";
 import ContactForm from "./ContactForm/ContactForm";
+import About from "./About/About";
+import LoadingOverlay from './LoadingOverlay/LoadingOverlay';
 
 const App = ():JSX.Element => {
 
+  // To check if the viewport size is mobile or tab to change navigation style
+  // and turn mobile nav off
   const isMobileorTab = useMediaQuery({
     query: '(max-device-width: 960px)'
   })
 
+  // Set to open navigation menu on mobile or tab
   const openMenu = ():void => {
     setShowNav(!showNav);
   }
 
-  // const openFormDisplay = ():void => {
-  //   setShowForm(!showNav);
-  // }
-
+  // Sets the loading overlay and navigation number to display the background scribble
   const setLoadAndNav = (num:number):void => {
     setLoading(true);
     setNavNum(num);
+
+    setInterval(() => setLoading(false), 2000);
   }
 
+  // Use state variables
   const [loading, setLoading] = React.useState<boolean>(false);
   const [showNav, setShowNav] = React.useState<boolean>(false);
   const [navNum, setNavNum] = React.useState<number>(0);
-  // const [showForm, setShowForm] = React.useState<boolean>(false);
-  // const [openForm, setOpenForm] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    setInterval(() => setLoading(false), 2000);
-  }, [loading]);
 
   return (
     <div className="main">
-      <LoadingOverlay  enabled={loading} bgColor="#DADED4" spinnerColor="#FFFFFF" />
+      {/* Loading overlay is enabled every time new component is loaded */}
+      <LoadingOverlay  enabled={loading} bgColor="#DADED4" spinnerColor="#FFFFFF" setLoading={setLoading}/>
 
+      {/* This header is for mobile and tabs. Display is none for bigger screens */}
       <div className="header">
         <div className="header__title"><img src="logogs.svg" alt="dsf" height="152px" width="142px"></img></div>
         <div className="header__menuBtn"><img className="header__menuBtn__icon" src="menuredysvg.svg" alt="dsf" height="50px" width="50px" onClick={openMenu}></img></div>
       </div>
 
+      {/* Using react-responsive package to check the screen size and only display mobile navigation if size is right */}
       {isMobileorTab &&
         <div className="shortNav" style={{display: (showNav ? 'flex' : 'none')}}>
           <Link to="/" className={"shortNav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setLoadAndNav(1)}>Home</Link>
           <Link to="/projects" className={"shortNav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setLoadAndNav(2)}>Projects</Link>
-          <Link to="/" className={"shortNav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
+          <Link to="/about" className={"shortNav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
           <Link to="/contact" className={"shortNav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Contact</Link>
             <span onClick={(e) => setShowNav(false)}>X</span>
         </div>
 }
       
+      {/* This is the main body of the app. Everything is in it. */}
       <div className="subSection">
         <div className="nav">
+          <div className="header__title"><img src="logogs.svg" alt="dsf" height="152px" width="142px"></img></div>
           <Link to="/" className={"nav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setLoadAndNav(1)}>Home</Link>
           <Link to="/projects" className={"nav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setLoadAndNav(2)}>Projects</Link>
-          <Link to="/" className={"nav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
+          <Link to="/about" className={"nav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
           <Link to="/contact" className={"nav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Contact</Link>
         </div>
 
+        {/* This is the section which changes everytime from the navigation */}
         <div className="changesection">
           <Switch>
               <Route 
                 path="/"
-                render={() => <Mainpage navNumber={setNavNum} />}
+                render={() => <Mainpage navNumber={setLoadAndNav} />}
                 exact
               />
               
               <Route 
                 path="/main"
-                render={() => <Mainpage navNumber={setNavNum} />}
+                render={() => <Mainpage navNumber={setLoadAndNav} />}
               />
 
               <Route 
@@ -88,12 +93,12 @@ const App = ():JSX.Element => {
                 render={() => <ContactForm />}
               />
 
-              {/* <Route 
+              <Route 
                 path="/about"
-                render={() => <DeleteTech technologies={technologies} setLoading={setLoading} setRefreshData={setRefreshData} />}
+                render={() => <About />}
               />
 
-              <Route 
+              {/* <Route 
                 path="/resume"
                 render={() => <CourseEdit courses={courses} setLoading={setLoading} setRefreshData={setRefreshData} />}
               />
@@ -108,6 +113,7 @@ const App = ():JSX.Element => {
           </Switch>
         </div>
 
+        {/* This social media widgets are placed here as they appear on all the pages */}
         <div className="socialMedia">
           <a href="https://www.instagram.com/gurnihalsandhu/" target="blank" ><img src="insta.svg" alt="Link to Instagram" height="40px" width="40px"></img></a>
           <a href="https://www.facebook.com/guri.sandhu47/" target="blank" ><img src="facebook.svg" alt="Link to Facebook" height="40px" width="40px"></img></a>
@@ -117,6 +123,7 @@ const App = ():JSX.Element => {
         </div>
       </div>
 
+      {/* The footer is also displayed on all the pages */}
       <div className="footer">
         <span>
         &copy; 2021 &nbsp;  

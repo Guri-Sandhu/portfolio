@@ -1,16 +1,17 @@
 import React from 'react';
-
-import Typing from "./Typing";
-import "./Mainpage.scss";
 import { Link } from 'react-router-dom';
 
+// Importing components
+import Typing from "./Typing";
+import "./Mainpage.scss";
+
+// Importing parameter datatypes
 import {mainPageProps} from "./../Tools/data.model";
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-// Jump component which is populated with image thumbnails which can be clicked on to go to a certain image
+// Mainpage component. The animated bobblehead and data on main page
 const Mainpage = ({navNumber}:mainPageProps):JSX.Element => {
 
+    // To change navigation number in app.tsx to display scribble on navigation
     const changeNav = (num:Number):void => {
         navNumber(num);
     }

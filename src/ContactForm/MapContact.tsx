@@ -3,19 +3,20 @@ import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "./ContactForm.scss";
 
+// Using mapbox and package named ReactMapboxGl to get a map component for the contact page
 const Map = ReactMapboxGl({
     accessToken:
       'pk.eyJ1IjoidzA0MjQ5NzkiLCJhIjoiY2trOXowb2M2MG1iODJ3cnpldWtkaTU0YyJ9.t6LjM59x5dtGxby9WgHQ0A'
   });
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-// Jump component which is populated with image thumbnails which can be clicked on to go to a certain image
+// The map component for bigger screens
 const MapContact = ():JSX.Element => {
 
     return (
         <div className="mapbox">
+            {/* Setting up the map component and setting it's properties */}
             <Map
+                // eslint-disable-next-line
                 style="mapbox://styles/w0424979/ckka0gr2i2u7l17msz20s7pme"
                 center={[-63.263078,45.385511]}
                 containerStyle={{
@@ -23,6 +24,7 @@ const MapContact = ():JSX.Element => {
                 width: '400px'
                 }}
             >
+                {/* Putting a marker on the map. */}
                 <Marker
                     coordinates={[-63.263078,45.385511]}
                     anchor="center">

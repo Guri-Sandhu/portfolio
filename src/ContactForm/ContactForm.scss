@@ -133,7 +133,15 @@ input{
     cursor: pointer;
   }
 
-  @media (max-width: 960px) {
+@media (max-width: 1440px) {
+
+    .contact {
+        padding-top: 20px;
+    }
+
+}
+
+@media (max-width: 960px) {
     .contact {
         padding-left:10px;
         @include display-flex();
