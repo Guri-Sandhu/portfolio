@@ -141,12 +141,21 @@
         @include display-flex();
         flex-direction: column;
         text-align: center;
+        width: 100%;
         transition-delay: 1s;
         background-color: hsla(120, 60%, 70%, 0.1);
+
+        & > * {
+            margin: 5px 0;
+        }
+        
     }
 
     .shortNav__link {
         font-size: 28px;
+        color: #3C403D;
+        text-decoration: none;
+        width: 100%;
     }
 
     .changesection {

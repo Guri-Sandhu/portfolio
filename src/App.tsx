@@ -10,6 +10,7 @@ import Projects from "./Projects/Projects";
 import ContactForm from "./ContactForm/ContactForm";
 import About from "./About/About";
 import LoadingOverlay from './LoadingOverlay/LoadingOverlay';
+import pdf from "./Assets/resume.pdf";
 
 const App = ():JSX.Element => {
 
@@ -24,12 +25,14 @@ const App = ():JSX.Element => {
     setShowNav(!showNav);
   }
 
+  
+
   // Sets the loading overlay and navigation number to display the background scribble
   const setLoadAndNav = (num:number):void => {
     setLoading(true);
     setNavNum(num);
-
     setInterval(() => setLoading(false), 2000);
+    setShowNav(false);
   }
 
   // Use state variables
@@ -53,9 +56,12 @@ const App = ():JSX.Element => {
         <div className="shortNav" style={{display: (showNav ? 'flex' : 'none')}}>
           <Link to="/" className={"shortNav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setLoadAndNav(1)}>Home</Link>
           <Link to="/projects" className={"shortNav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setLoadAndNav(2)}>Projects</Link>
-          <Link to="/about" className={"shortNav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
-          <Link to="/contact" className={"shortNav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Contact</Link>
-            <span onClick={(e) => setShowNav(false)}>X</span>
+          <Link to="/projects" className={"shortNav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>Skills&nbsp;<i className="far fa-arrow-alt-circle-right"></i></Link>
+          {/* <Link to="/projects" className={"shortNav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Resume</Link> */}
+          <a className="shortNav__link" href={pdf} target="_blank">Resume&nbsp;< i className="fas fa-download"></i></a>
+          <Link to="/about" className={"shortNav__link "  + (navNum === 5 ? 'click' : '')} onClick={(e) => setLoadAndNav(5)}>About</Link>
+          <Link to="/contact" className={"shortNav__link "  + (navNum === 6 ? 'click' : '')} onClick={(e) => setLoadAndNav(6)}>Contact</Link>
+          <span className="shortNav__link" onClick={(e) => setShowNav(false)}><i className="fas fa-times"></i></span>
         </div>
 }
       
@@ -65,8 +71,11 @@ const App = ():JSX.Element => {
           <div className="header__title"><img src="logogs.svg" alt="dsf" height="152px" width="142px"></img></div>
           <Link to="/" className={"nav__link "  + (navNum === 1 ? 'click' : '')} onClick={(e) => setLoadAndNav(1)}>Home</Link>
           <Link to="/projects" className={"nav__link "  + (navNum === 2 ? 'click' : '')} onClick={(e) => setLoadAndNav(2)}>Projects</Link>
-          <Link to="/about" className={"nav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>About</Link>
-          <Link to="/contact" className={"nav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Contact</Link>
+          <Link to="/projects" className={"nav__link "  + (navNum === 3 ? 'click' : '')} onClick={(e) => setLoadAndNav(3)}>Skills&nbsp;<i className="far fa-arrow-alt-circle-right"></i></Link>
+          {/* <Link to="/projects" href={pdf} target="_blank" className={"nav__link "  + (navNum === 4 ? 'click' : '')} onClick={(e) => setLoadAndNav(4)}>Resume&nbsp;< i className="fas fa-download"></i></Link> */}
+          <a className="nav__link" href={pdf} target="_blank">Resume&nbsp;< i className="fas fa-download"></i></a>
+          <Link to="/about" className={"nav__link "  + (navNum === 5 ? 'click' : '')} onClick={(e) => setLoadAndNav(5)}>About</Link>
+          <Link to="/contact" className={"nav__link "  + (navNum === 6 ? 'click' : '')} onClick={(e) => setLoadAndNav(6)}>Contact</Link>
         </div>
 
         {/* This is the section which changes everytime from the navigation */}
