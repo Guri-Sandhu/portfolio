@@ -8,7 +8,6 @@ const Typing = ():JSX.Element => {
         options={{
             strings: [
             "Developer.",
-            "C# Developer.",
             "MERN Stack Developer.",
             "NSCC Student.",
             ],
