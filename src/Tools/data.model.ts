@@ -9,7 +9,7 @@ export interface mainPageProps{
 }
 
 export interface contactPageProps{
-    navNumber:        Function;
+    setLoading:        Function;
 }
 
 export interface progressBarProps {

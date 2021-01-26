@@ -100,7 +100,7 @@ const App = ():JSX.Element => {
 
               <Route 
                 path="/contact"
-                render={() => <ContactForm />}
+                render={() => <ContactForm setLoading={setLoading}/>}
               />
 
               <Route 
