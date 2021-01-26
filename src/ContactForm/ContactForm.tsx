@@ -8,7 +8,7 @@ import {contactPageProps} from "./../Tools/data.model"
 
 import {sendJSONData} from "./../Tools/Toolkit";
 
-const SUBMIT_SCRIPT:string = "http://localhost:8080/post";
+const SUBMIT_SCRIPT:string = "https://still-refuge-22594.herokuapp.com/post";
 
 // This is the contact page component
 // It also uses mapbox to display the location
